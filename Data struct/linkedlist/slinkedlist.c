@@ -25,33 +25,33 @@ void search();
 void main()
 {
     int v;
-    for ( ; ;)
+    for ( ; ; )
     {
-    printf("\t\t 1.INSERTATBEG \n\t\t 2.INSERTATLAST \n\t\t 3.RANDOMINSERT \n\t\t 4.DELETEATBEG \n\t\t 5.DELETEATLAST \n\t\t 6.DELETEATRANDOM \n\t\t 7.DISPLAY \n\t\t 8.SEARCH \n\t\t 9.EXIT");
+    printf("\n\t\t 1.INSERTATBEG \n\t\t 2.INSERTATLAST \n\t\t 3.RANDOMINSERT \n\t\t 4.DELETEATBEG \n\t\t 5.DELETEATLAST \n\t\t 6.DELETEATRANDOM \n\t\t 7.DISPLAY \n\t\t 8.SEARCH \n\t\t 9.EXIT \n\t\t10.CREATE");
     printf("\nEnter the function: ");
     scanf("%d", &v);
 
     
         switch(v)
         {
-            case 1: beginert(head);
+            case 1: beginert();
                     break;
-            case 2: lastinsert(head);
+            case 2: lastinsert();
                     break;
-            case 3: randominsert(head);
+            case 3: randominsert();
                     break;
-            case 4: begindelete(head);
+            case 4: begindelete();
                     break;
-            case 5: lastdelete(head);
+            case 5: lastdelete();
                     break;
-            case 6: randomdelete(head);
+            case 6: randomdelete();
                     break;
-            case 7: display(head);
+            case 7: display();
                     break;
-            case 8: search(head);
+            case 8: search();
                     break;
-            case 10: create(head);
-            
+            case 10: create();
+                    break;
             case 9: exit(0);
         }
     }   
@@ -82,7 +82,7 @@ void create()
                 ls=ls->next;
             }
             ls->next=(struct node *)malloc(sizeof(struct node));
-            ls->next->next=n;
+            ls->next->data=n;
             ls->next->next=NULL;
         }
         printf("\nDo you wants to continue: ");
@@ -287,11 +287,10 @@ void display()
         printf("\nPrinting values .........\n");
         while(ptr!=NULL)
         {
-            printf("\n%d", ptr->data);
+            printf("%d -> ", ptr->data);
             ptr=ptr->next;
         }
     }
 }
-
 
 
